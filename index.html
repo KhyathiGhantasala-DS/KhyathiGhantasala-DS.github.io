@@ -1,0 +1,873 @@
+<title>Khyathi Ghantasala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --bg: #F5F8F9;
+    --surface: #FFFFFF;
+    --surface-raised: #FFFFFF;
+    --ink: #16232A;
+    --ink-soft: #4C5D66;
+    --ink-faint: #7C8B92;
+    --accent: #0E6E68;
+    --accent-strong: #0A524D;
+    --accent-soft: #E3F0EE;
+    --accent-ink: #063D39;
+    --line: #DAE3E3;
+    --line-soft: #E9EFEF;
+    --good: #1E7A4C;
+    --shadow: 0 1px 2px rgba(16, 35, 33, 0.04), 0 8px 24px -12px rgba(16, 35, 33, 0.12);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E1417;
+      --surface: #161E22;
+      --surface-raised: #1B252A;
+      --ink: #E7EDEE;
+      --ink-soft: #A6B4B8;
+      --ink-faint: #75858A;
+      --accent: #4FD1C2;
+      --accent-strong: #7CE0D3;
+      --accent-soft: #16302E;
+      --accent-ink: #A9EDE1;
+      --line: #29373C;
+      --line-soft: #202B2F;
+      --good: #4ACB88;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px -16px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0E1417;
+    --surface: #161E22;
+    --surface-raised: #1B252A;
+    --ink: #E7EDEE;
+    --ink-soft: #A6B4B8;
+    --ink-faint: #75858A;
+    --accent: #4FD1C2;
+    --accent-strong: #7CE0D3;
+    --accent-soft: #16302E;
+    --accent-ink: #A9EDE1;
+    --line: #29373C;
+    --line-soft: #202B2F;
+    --good: #4ACB88;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px -16px rgba(0, 0, 0, 0.5);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--accent-soft); color: var(--accent-ink); }
+
+  a { color: inherit; }
+
+  h1, h2, h3, h4 {
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    margin: 0;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+
+  .mono {
+    font-family: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ---------- shell ---------- */
+
+  .wrap {
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+  }
+
+  nav.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  nav.topbar .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.75rem;
+  }
+
+  .brand {
+    font-family: "Source Serif 4", serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+  .brand span { color: var(--accent); }
+
+  .navlinks {
+    display: flex;
+    gap: clamp(0.9rem, 2vw, 1.75rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .navlinks a {
+    text-decoration: none;
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  .navlinks a:hover { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .navlinks { display: none; }
+  }
+
+  /* ---------- hero ---------- */
+
+  header.hero {
+    padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4rem);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+  }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 4.4vw, 3.1rem);
+    line-height: 1.08;
+    margin: 0.6rem 0 1rem;
+  }
+
+  .hero .role {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.9rem;
+  }
+
+  .hero p.lede {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    max-width: 42rem;
+    margin: 0 0 1.75rem;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 0.9rem;
+  }
+  .contact-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 0.4rem 0.75rem;
+    border-radius: 100px;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .contact-chip:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-chip svg { width: 13px; height: 13px; flex: none; }
+
+  /* mini chart flourish */
+  .chart-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.4rem 1.4rem 1.1rem;
+    box-shadow: var(--shadow);
+  }
+  .chart-card .cc-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.9rem;
+  }
+  .chart-card .cc-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-family: "IBM Plex Mono", monospace;
+  }
+  .chart-card .cc-delta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.82rem;
+    color: var(--good);
+    font-weight: 600;
+  }
+  .chart-card svg { display: block; width: 100%; height: auto; }
+  .chart-card .cc-foot {
+    display: flex;
+    justify-content: space-between;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-faint);
+    margin-top: 0.5rem;
+  }
+
+  /* ---------- kpi tiles ---------- */
+
+  .kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: clamp(2.25rem, 5vw, 3.25rem);
+  }
+  @media (max-width: 720px) {
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+  }
+  .kpi {
+    background: var(--surface);
+    padding: 1.25rem 1.4rem;
+  }
+  .kpi .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    font-weight: 600;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .kpi .label {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-top: 0.25rem;
+  }
+
+  /* ---------- sections ---------- */
+
+  section { padding: clamp(3rem, 7vw, 4.5rem) 0; }
+  section + section { border-top: 1px solid var(--line-soft); }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+  }
+  .section-head h2 { font-size: clamp(1.5rem, 2.6vw, 1.85rem); }
+  .section-head .eyebrow { white-space: nowrap; }
+
+  .summary-block {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+  @media (max-width: 800px) { .summary-block { grid-template-columns: 1fr; } }
+  .summary-block p {
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    max-width: 46rem;
+  }
+  .summary-block p + p { margin-top: 1rem; }
+
+  /* experience timeline */
+
+  .timeline { display: flex; flex-direction: column; gap: 2.5rem; }
+  .job {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: clamp(1.25rem, 4vw, 3rem);
+  }
+  @media (max-width: 760px) { .job { grid-template-columns: 1fr; } }
+
+  .job-meta .org {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+  .job-meta .place { color: var(--ink-faint); font-size: 0.85rem; margin-top: 0.15rem; }
+  .job-meta .when {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.76rem;
+    color: var(--accent);
+    margin-top: 0.55rem;
+    display: inline-block;
+    background: var(--accent-soft);
+    padding: 0.2rem 0.55rem;
+    border-radius: 5px;
+  }
+
+  .job-title { font-size: 1.12rem; font-weight: 600; margin-bottom: 0.7rem; font-family: "Source Serif 4", serif; }
+
+  .job ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .job li {
+    position: relative;
+    padding-left: 1.1rem;
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+  }
+  .job li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* projects */
+
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 760px) { .proj-grid { grid-template-columns: 1fr; } }
+
+  .proj-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.6rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .proj-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+
+  .proj-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .proj-card h3 { font-size: 1.1rem; }
+  .proj-org { font-size: 0.76rem; color: var(--ink-faint); font-family: "IBM Plex Mono", monospace; margin-top: 0.3rem; }
+
+  .proj-metric {
+    flex: none;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--good);
+    background: color-mix(in srgb, var(--good) 12%, var(--surface));
+    padding: 0.3rem 0.6rem;
+    border-radius: 7px;
+    white-space: nowrap;
+  }
+
+  .proj-card p { color: var(--ink-soft); font-size: 0.92rem; margin: 0; }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; padding-top: 0.4rem; }
+  .tag {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    padding: 0.22rem 0.55rem;
+    border-radius: 5px;
+  }
+
+  /* skills */
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .skill-group {
+    background: var(--surface);
+    padding: 1.35rem 1.5rem;
+  }
+  .skill-group h4 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+  }
+  .skill-group .tag-row { padding-top: 0; }
+
+  /* certifications */
+
+  .cert-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line-soft); }
+  .cert {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .cert-name { font-size: 0.98rem; color: var(--ink); }
+  .cert-badge {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    border: 1px solid var(--line);
+    padding: 0.22rem 0.55rem;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .cert-badge.progress { color: var(--accent); border-color: var(--accent); }
+
+  /* education */
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 700px) { .edu-grid { grid-template-columns: 1fr; } }
+  .edu-card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.4rem 1.5rem;
+    background: var(--surface);
+  }
+  .edu-card .degree { font-family: "Source Serif 4", serif; font-size: 1.05rem; font-weight: 600; }
+  .edu-card .school { color: var(--ink-soft); font-size: 0.9rem; margin-top: 0.3rem; }
+  .edu-card .when { font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; color: var(--ink-faint); margin-top: 0.5rem; }
+
+  /* footer / contact */
+
+  footer.contact {
+    padding: clamp(3rem, 7vw, 4.5rem) 0 clamp(3rem, 6vw, 4rem);
+    text-align: center;
+  }
+  footer.contact h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); margin-bottom: 0.85rem; }
+  footer.contact p { color: var(--ink-soft); max-width: 32rem; margin: 0 auto 1.75rem; }
+
+  .cta-row { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.3rem;
+    border-radius: 9px;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { transform: translateY(-2px); background: var(--accent-strong); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .foot-fine {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.74rem;
+    color: var(--ink-faint);
+    border-top: 1px solid var(--line-soft);
+    padding-top: 1.5rem;
+  }
+</style>
+
+<nav class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Khyathi <span>Ghantasala</span></a>
+    <ul class="navlinks">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Data Analyst</p>
+      <h1>Khyathi Lakshmi Sri&nbsp;Ghantasala</h1>
+      <p class="lede">I turn messy operational data into dashboards and decisions — 4+ years across SQL, Power BI, and cross-functional reporting for business, IT, and operations teams.</p>
+      <div class="contact-row">
+        <a class="contact-chip" href="tel:+15722083160">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (572) 208-3160
+        </a>
+        <a class="contact-chip" href="mailto:klsghantasala@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          klsghantasala@gmail.com
+        </a>
+        <a class="contact-chip" href="https://github.com/KhyathiGhantasala-DS" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.55 2.87 8.4 6.84 9.77.5.1.68-.22.68-.5 0-.24-.01-1.05-.01-1.9-2.79.62-3.38-1.21-3.38-1.21-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.23-.26-4.57-1.14-4.57-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.75 0 0 .84-.27 2.75 1.05a9.32 9.32 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.43.2 2.49.1 2.75.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.58 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.5A10.02 10.02 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+          github.com/KhyathiGhantasala-DS
+        </a>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi"><div class="num mono">4+</div><div class="label">Years in data analysis</div></div>
+        <div class="kpi"><div class="num mono">15%</div><div class="label">Efficiency gain driven</div></div>
+        <div class="kpi"><div class="num mono">25%</div><div class="label">Manual reporting cut</div></div>
+        <div class="kpi"><div class="num mono">18+</div><div class="label">Projects delivered</div></div>
+      </div>
+    </div>
+
+    <div class="chart-card" aria-hidden="true">
+      <div class="cc-head">
+        <span class="cc-title">Ops Efficiency — Trailing 6mo</span>
+        <span class="cc-delta">▲ 15%</span>
+      </div>
+      <svg viewBox="0 0 260 110" preserveAspectRatio="none">
+        <line x1="0" y1="20" x2="260" y2="20" stroke="var(--line-soft)" stroke-width="1"/>
+        <line x1="0" y1="55" x2="260" y2="55" stroke="var(--line-soft)" stroke-width="1"/>
+        <line x1="0" y1="90" x2="260" y2="90" stroke="var(--line-soft)" stroke-width="1"/>
+        <polyline points="0,85 40,80 80,68 120,70 160,50 200,40 260,15" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <polygon points="0,85 40,80 80,68 120,70 160,50 200,40 260,15 260,110 0,110" fill="var(--accent)" opacity="0.10"/>
+        <circle cx="260" cy="15" r="3.5" fill="var(--accent)"/>
+      </svg>
+      <div class="cc-foot"><span>MAR</span><span>MAY</span><span>JUL</span><span>SEP</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="summary">
+    <div class="wrap summary-block reveal">
+      <div>
+        <p class="eyebrow">Summary</p>
+        <h2>What I do</h2>
+      </div>
+      <div>
+        <p>Data Analyst with 4+ years of experience collecting, cleaning, and analyzing large datasets to uncover actionable insights. Proficient in SQL, Python, Power BI, Tableau, and Excel, with a track record of building dashboards, running statistical analysis, and presenting data-driven recommendations to cross-functional stakeholders.</p>
+        <p>I work closely with business, IT, and operations teams to understand reporting requirements and deliver accurate, consistent solutions — from root-cause investigations to executive KPI dashboards.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Experience</h2>
+        <span class="eyebrow">2022 — Present</span>
+      </div>
+
+      <div class="timeline">
+        <article class="job reveal">
+          <div class="job-meta">
+            <div class="org">Interworks</div>
+            <div class="place">USA</div>
+            <div class="when">Jun 2025 – Present</div>
+          </div>
+          <div>
+            <h3 class="job-title">Data Analyst</h3>
+            <ul>
+              <li>Collected, cleaned, and validated operational datasets from multiple enterprise sources, ensuring accuracy and integrity across 10+ transformation initiatives.</li>
+              <li>Performed SQL-based analysis and root cause investigations on large operational datasets, driving a 15% improvement in operational efficiency.</li>
+              <li>Developed Power BI dashboards and KPI reports enabling leadership to monitor performance trends and make informed decisions.</li>
+              <li>Analyzed business and operational trends using SQL, Power BI, and Excel, identifying opportunities for process optimization.</li>
+              <li>Worked directly with business stakeholders to translate reporting requirements into structured analytical solutions.</li>
+              <li>Presented findings through visualizations and reports to cross-functional teams spanning IT, business, and operations.</li>
+              <li>Collaborated within Agile sprint teams using JIRA and Azure DevOps to track data requirements and delivery.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-meta">
+            <div class="org">Zensar Technologies</div>
+            <div class="place">India</div>
+            <div class="when">May 2022 – Jan 2024</div>
+          </div>
+          <div>
+            <h3 class="job-title">Associate Data Analyst</h3>
+            <ul>
+              <li>Extracted, cleaned, and analyzed data using SQL and Excel to support business reporting and operational reviews across 8+ projects.</li>
+              <li>Built and maintained Power BI dashboards tracking operational KPIs and business performance metrics, reducing manual reporting effort by 25%.</li>
+              <li>Performed trend analysis, statistical analysis, and data quality assessments to identify inconsistencies and improve accuracy.</li>
+              <li>Generated ad hoc reports and data insights for stakeholders, supporting data-driven decision-making.</li>
+              <li>Ensured data consistency and integrity through validation checks and reporting audits across multiple sources.</li>
+              <li>Collaborated with cross-functional teams (IT, business, operations) in Agile sprints via JIRA and Azure DevOps.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Selected work</h2>
+        <span class="eyebrow">Case studies</span>
+      </div>
+
+      <div class="proj-grid">
+        <article class="proj-card reveal">
+          <div class="proj-top">
+            <div>
+              <h3>Enterprise Data Validation &amp; Root Cause Analysis</h3>
+              <div class="proj-org">Interworks · 2025</div>
+            </div>
+            <span class="proj-metric">▲ 15% efficiency</span>
+          </div>
+          <p>Ran SQL-based root cause investigations across 10+ enterprise transformation initiatives, tracing operational discrepancies back to source systems and closing gaps that were slowing down cross-team workflows.</p>
+          <div class="tag-row">
+            <span class="tag">SQL</span><span class="tag">Root Cause Analysis</span><span class="tag">Data Validation</span>
+          </div>
+        </article>
+
+        <article class="proj-card reveal">
+          <div class="proj-top">
+            <div>
+              <h3>Executive KPI Dashboard Suite</h3>
+              <div class="proj-org">Interworks · 2025</div>
+            </div>
+            <span class="proj-metric">Leadership-facing</span>
+          </div>
+          <p>Designed and shipped Power BI dashboards and KPI reports giving leadership a real-time view into performance trends, replacing static reporting with something they'd actually check.</p>
+          <div class="tag-row">
+            <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Stakeholder Reporting</span>
+          </div>
+        </article>
+
+        <article class="proj-card reveal">
+          <div class="proj-top">
+            <div>
+              <h3>Operational Reporting Automation</h3>
+              <div class="proj-org">Zensar Technologies · 2022–24</div>
+            </div>
+            <span class="proj-metric">▼ 25% manual effort</span>
+          </div>
+          <p>Built and maintained Power BI dashboards tracking operational KPIs and business performance across 8+ projects, cutting manual reporting effort by a quarter.</p>
+          <div class="tag-row">
+            <span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Excel</span>
+          </div>
+        </article>
+
+        <article class="proj-card reveal">
+          <div class="proj-top">
+            <div>
+              <h3>Data Quality &amp; Reporting Audit Framework</h3>
+              <div class="proj-org">Zensar Technologies · 2022–24</div>
+            </div>
+            <span class="proj-metric">Multi-source</span>
+          </div>
+          <p>Ran trend and statistical analysis alongside data quality assessments and validation checks, tightening consistency and integrity across multiple reporting sources.</p>
+          <div class="tag-row">
+            <span class="tag">Statistical Analysis</span><span class="tag">Data Quality</span><span class="tag">Reporting Audits</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Skills</h2>
+        <span class="eyebrow">Tools &amp; methods</span>
+      </div>
+
+      <div class="skills-grid reveal">
+        <div class="skill-group">
+          <h4>Data &amp; Query</h4>
+          <div class="tag-row">
+            <span class="tag">SQL (joins, aggregations)</span><span class="tag">Python (pandas, NumPy)</span><span class="tag">R</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Visualization</h4>
+          <div class="tag-row">
+            <span class="tag">Power BI (DAX)</span><span class="tag">Tableau</span><span class="tag">Excel</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Analysis</h4>
+          <div class="tag-row">
+            <span class="tag">Trend Analysis</span><span class="tag">Root Cause Analysis</span><span class="tag">Statistical Analysis</span><span class="tag">Data Modeling</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Data Management</h4>
+          <div class="tag-row">
+            <span class="tag">Data Cleaning</span><span class="tag">Data Integrity</span><span class="tag">ETL Pipelines</span><span class="tag">Large Datasets</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Audit &amp; Controls</h4>
+          <div class="tag-row">
+            <span class="tag">Reporting Audits</span><span class="tag">Reconciliation</span><span class="tag">Discrepancy Analysis</span><span class="tag">Control Testing Support</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Communication</h4>
+          <div class="tag-row">
+            <span class="tag">Stakeholder Reporting</span><span class="tag">Dashboard Presentations</span><span class="tag">Cross-functional Collaboration</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Tools &amp; Platforms</h4>
+          <div class="tag-row">
+            <span class="tag">Azure DevOps</span><span class="tag">JIRA</span><span class="tag">Confluence</span><span class="tag">SharePoint</span><span class="tag">Power Apps</span><span class="tag">Power Automate</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Methodologies</h4>
+          <div class="tag-row">
+            <span class="tag">Agile</span><span class="tag">Scrum</span><span class="tag">SDLC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Certifications</h2>
+        <span class="eyebrow">Credentials</span>
+      </div>
+      <div class="cert-list reveal">
+        <div class="cert">
+          <span class="cert-name">SAS Certified Predictive Modeler Using SAS Enterprise Miner 14</span>
+          <span class="cert-badge">SAS</span>
+        </div>
+        <div class="cert">
+          <span class="cert-name">SAS Certified Specialist: Machine Learning Using SAS Viya</span>
+          <span class="cert-badge">SAS</span>
+        </div>
+        <div class="cert">
+          <span class="cert-name">Microsoft Certified: Power Platform Fundamentals</span>
+          <span class="cert-badge">Microsoft</span>
+        </div>
+        <div class="cert">
+          <span class="cert-name">Microsoft Certified: Azure Fundamentals</span>
+          <span class="cert-badge progress">In Progress</span>
+        </div>
+        <div class="cert">
+          <span class="cert-name">SAS Certified Associate: Programming Fundamentals Using SAS</span>
+          <span class="cert-badge">SAS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Education</h2>
+        <span class="eyebrow">Academics</span>
+      </div>
+      <div class="edu-grid reveal">
+        <div class="edu-card">
+          <div class="degree">Master's in Business Analytics</div>
+          <div class="school">University of Central Oklahoma</div>
+          <div class="when mono">Jan 2024 – Dec 2025</div>
+        </div>
+        <div class="edu-card">
+          <div class="degree">Bachelor's in Business Administration</div>
+          <div class="school">Vignana University</div>
+          <div class="when mono">Jun 2019 – Jun 2021</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Let's talk about your data.</h2>
+    <p>Open to Data Analyst roles and collaborations. Reach out by email or phone, or take a look at what I've built on GitHub.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:klsghantasala@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="tel:+15722083160">(572) 208-3160</a>
+      <a class="btn btn-ghost" href="https://github.com/KhyathiGhantasala-DS" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="foot-fine">Khyathi Lakshmi Sri Ghantasala — Data Analyst</div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
